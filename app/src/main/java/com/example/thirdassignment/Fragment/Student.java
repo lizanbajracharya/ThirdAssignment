@@ -1,26 +1,16 @@
 package com.example.thirdassignment.Fragment;
 
 public class Student {
-    private Integer Imageid;
     private String Name;
     private String Address;
     private String Age;
     private String Gender;
 
-    public Student(Integer imageid, String name, String address, String age, String gender) {
-        Imageid = imageid;
+    public Student(String name, String address, String age, String gender) {
         Name = name;
         Address = address;
         Age = age;
         Gender = gender;
-    }
-
-    public Integer getImageid() {
-        return Imageid;
-    }
-
-    public void setImageid(Integer imageid) {
-        Imageid = imageid;
     }
 
     public String getName() {

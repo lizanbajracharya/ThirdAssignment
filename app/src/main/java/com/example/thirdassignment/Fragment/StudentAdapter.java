@@ -15,12 +15,10 @@ import com.example.thirdassignment.R;
 import java.util.List;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ContactsViewHolder>{
-    Context mContext;
     List<Student> studentList;
     //constructor to receive the data from activity
-    public StudentAdapter(Context mContext,List<Student> studentList)
+    public StudentAdapter(List<Student> studentList)
     {
-        this.mContext=mContext;
         this.studentList=studentList;
     }
     @NonNull
@@ -31,13 +29,27 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.Contacts
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ContactsViewHolder holder, int position) {
-        Student student=studentList.get(position);
-        holder.imgImage.setImageResource(student.getImageid());
+    public void onBindViewHolder(@NonNull ContactsViewHolder holder,final int position) {
+        final Student student=studentList.get(position);
+        String gender = student.getGender();
         holder.tvName.setText(student.getName());
         holder.tvAddress.setText(student.getAddress());
         holder.tvAge.setText(student.getAge());
         holder.tvGender.setText(student.getGender());
+        if (gender.equals("Male")) {
+            holder.imgImage.setImageResource(R.drawable.male);
+        } else if (gender.equals("Female")) {
+            holder.imgImage.setImageResource(R.drawable.female);
+        } else {
+            holder.imgImage.setImageResource(R.drawable.other);
+        }
+        holder.imgDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                studentList.remove(student);
+                notifyItemRemoved(position);
+            }
+        });
     }
 
     @Override

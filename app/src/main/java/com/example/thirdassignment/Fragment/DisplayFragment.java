@@ -33,13 +33,11 @@ public class DisplayFragment extends Fragment {
         // Inflate the layout for this fragment
         View root= inflater.inflate(R.layout.fragment_display, container, false);
         recyclerView=root.findViewById(R.id.recyclerView);
-        List<Student> studentList=new ArrayList<>();
-        studentList.add(new Student(R.drawable.ic_launcher_background,"Lizan","Patan","21","Male"));
 
-        StudentAdapter studentAdapter=new StudentAdapter(getActivity(),studentList);
+        StudentAdapter studentAdapter=new StudentAdapter(AddFragment.studentArrayList);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(studentAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return root;
     }
-
 }
