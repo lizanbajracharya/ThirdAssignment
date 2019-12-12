@@ -34,6 +34,10 @@ public class DisplayFragment extends Fragment {
         View root= inflater.inflate(R.layout.fragment_display, container, false);
         recyclerView=root.findViewById(R.id.recyclerView);
 
+        AddFragment.studentArrayList.add(new Student("Lizan Bajracharya","Patan","21","Male"));
+        AddFragment.studentArrayList.add(new Student("Prashant Shrestha","Kathmandu","21","Male"));
+        AddFragment.studentArrayList.add(new Student("Ashish Dongol","Kathmandu","21","Male"));
+
         StudentAdapter studentAdapter=new StudentAdapter(AddFragment.studentArrayList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
