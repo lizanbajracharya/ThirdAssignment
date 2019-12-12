@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.thirdassignment.Fragment.AboutFragment;
 import com.example.thirdassignment.Fragment.AddFragment;
 import com.example.thirdassignment.Fragment.DisplayFragment;
+import com.example.thirdassignment.Fragment.Student;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -27,6 +28,10 @@ public class DashboardActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dashboard);
+
+        AddFragment.studentArrayList.add(new Student("Lizan Bajracharya","Patan","21","Male"));
+        AddFragment.studentArrayList.add(new Student("Prashant Shrestha","Kathmandu","21","Male"));
+        AddFragment.studentArrayList.add(new Student("Ashish Dongol","Kathmandu","21","Male"));
 
         loadFragment(new DisplayFragment());
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
